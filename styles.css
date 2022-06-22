@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%; /* 1rem = 10px  */
+}
+body {
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+
+  @apply bg-zinc-800;
+}
+
+input[type] {
+  accent-color: red;
+  height: 20px;
+  size: 20px;
+}
+
+.lock {
+  /* fill: red; */
+  transform: rotate(10deg);
+  filter: drop-shadow(0.4rem 0.2rem 0px grey);
+  transition: all 1s;
+}
+
+.lock:hover {
+  transform: rotate(5deg);
+  filter: none;
+  transform: scale(1.2);
+}
