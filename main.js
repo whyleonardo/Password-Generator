@@ -21,12 +21,17 @@ const newPasswordGenerated = () => {
   inputPassword.setAttribute('value', newPassword.join(''))
 }
 
-// function copyPassword() {
-//   navigator.clipboard.writeText(newPassword)
-// }
-
 function showPassword() {
   inputPassword.removeAttribute('type')
 }
 
-// setPass()
+// to do
+
+// copiar texto
+// resetar o inputPassword
+// pensar em novos nomes pras variáveis
+// esconder a div do menu enquanto o password não foi gerado ainda
+
+// function copyPassword() {
+//   navigator.clipboard.writeText(newPassword)
+// }
