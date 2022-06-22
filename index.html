@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -24,26 +24,12 @@
       </header>
 
       <main
-        class="flex flex-col p-2 items-center rounded-3xl py-6 gap-10 h-3/5 w-full mt-10 border-sky-600 border"
+        class="flex flex-col p-2 items-center justify-center rounded-3xl py-6 gap-10 h-2/4 w-full mt-10 border-sky-600 border"
       >
-        <div>
-          <svg
-            class="lock w-10"
-            src="assets/lock-solid.svg"
-            alt=""
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-          >
-            <path
-              d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"
-            />
-          </svg>
-        </div>
-
         <h2 class="text-4xl">Password Generator</h2>
 
         <div
-          class="flex flex-col items-center gap-2 rounded-3xl p-2 border-sky-600 border"
+          class="flex flex-col items-center gap-2 rounded-3xl p-2 w-full border-sky-600 border"
         >
           <h3 class="text-2xl">Define the size of your password</h3>
           <input
@@ -57,39 +43,42 @@
           <span class="slider-value">0</span>
           <button
             id="generate-button"
-            class="bg-red-500 py-3 px-10 rounded-2xl"
+            onclick="newPasswordGenerated()"
+            class="flex justify-center gap-2"
           >
             Generate
+            <svg
+              class="lock w-5"
+              src="assets/lock-solid.svg"
+              alt=""
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z"
+              />
+            </svg>
           </button>
         </div>
 
         <div
           id="password-container"
-          class="flex flex-col gap-2 border border-blue-500"
+          class="flex flex-col items-center gap-2 border border-blue-500 w-full hidden rounded-3xl"
         >
           <input
             class="text-center bg-transparent text-2xl outline-none text-blue-400"
             disabled
-            title="oi"
             value=""
             type="password"
             id="password-value"
           />
-          <span id="password-values"></span>
-          <button class="text-2xl" onclick="showPassword()">
+          <button class="text-2xl w-2/4" onclick="showPassword()">
             Show Password
           </button>
 
           <div class="flex gap-6">
-            <button
-              class="bg-red-500 py-3 px-10 rounded-2xl"
-              id="copy-clipboard"
-            >
-              Copy
-            </button>
-            <button class="bg-red-500 py-3 px-10 rounded-2xl" id="reset">
-              Reset
-            </button>
+            <button id="copy-clipboard" onclick="copyPassword()">Copy</button>
+            <button id="reset" onclick="resetPassword()">Reset</button>
           </div>
         </div>
       </main>

@@ -15,10 +15,19 @@ body {
   color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
 
   @apply bg-zinc-800;
+}
+
+button {
+  @apply bg-red-500 rounded-3xl py-3 px-10 transition-all duration-500;
+}
+
+button:hover {
+  filter: brightness(1.2);
+  transform: scale(1.1);
 }
 
 input[type] {
@@ -31,11 +40,10 @@ input[type] {
   /* fill: red; */
   transform: rotate(10deg);
   filter: drop-shadow(0.4rem 0.2rem 0px grey);
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
-.lock:hover {
-  transform: rotate(5deg);
+#generate-button:hover .lock {
   filter: none;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
