@@ -16,23 +16,32 @@
     />
   </head>
   <body>
+    <!-- CONTAINER ============ -->
     <div class="container p-8 h-screen flex flex-col items-center">
+      <div class="ball"></div>
+      <div class="ball"></div>
+
+      <!-- HEADER ============ -->
       <header class="flex flex-col items-center justify-center gap-10 mt-8">
-        <h1 class="text-5xl text-center">Need a strong password?</h1>
-        <span class="border my-4 divide-purple-800 w-2/4"></span>
-        <h2 class="text-4xl">Generate yours here!</h2>
+        <!-- TITLES ============ -->
+        <h1 class="text-5xl font-bold text-center uppercase">
+          You need a strong password?
+        </h1>
+        <span class="divider"> </span>
+        <h2 class="text-4xl font-bold">Generate yours here!</h2>
       </header>
 
+      <!-- MAIN -->
       <main
-        class="flex flex-col p-2 items-center justify-center rounded-3xl py-6 gap-10 h-2/4 w-full mt-10 border-sky-600 border"
+        class="flex flex-col p-2 items-center justify-center rounded-3xl py-6 gap-10 h-2/4 w-full mt-10 bg-zinc-800"
       >
-        <h2 class="text-4xl">Password Generator</h2>
+        <h2 class="text-4xl font-bold">Password Generator</h2>
 
-        <div
-          class="flex flex-col items-center gap-2 rounded-3xl p-2 w-full border-sky-600 border"
-        >
-          <h3 class="text-2xl">Define the size of your password</h3>
+        <!-- SLIDER & BUTTON ============ -->
+        <div class="flex flex-col items-center gap-2 rounded-3xl p-2 w-full">
+          <h3 class="text-2xl font-medium">Define the size of your password</h3>
           <input
+            class="border-t-slate-50 border"
             type="range"
             min="5"
             max="25"
@@ -61,12 +70,13 @@
           </button>
         </div>
 
+        <!-- PASSWORD_CONTAINER ============ -->
         <div
           id="password-container"
-          class="flex flex-col items-center gap-2 border border-blue-500 w-full hidden rounded-3xl"
+          class="flex flex-col items-center gap-2 py-5 w-full hidden rounded-3xl"
         >
           <input
-            class="text-center bg-transparent text-2xl outline-none text-blue-400"
+            class="text-center bg-transparent w-3/4 text-2xl outline-none py-1 text-slate-100 font-bold"
             disabled
             value=""
             type="password"
@@ -85,6 +95,5 @@
     </div>
 
     <script src="/main.js"></script>
-    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
   </body>
 </html>

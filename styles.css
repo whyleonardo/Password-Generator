@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* GLOBAL CONFIGS ============  */
+
 * {
   padding: 0;
   margin: 0;
@@ -9,20 +11,30 @@
 }
 
 :root {
+  --red-color: rgb(239, 68, 68);
+  --white-color: rgb(248, 250, 252);
+
   font-size: 62.5%; /* 1rem = 10px  */
 }
+
 body {
-  color: white;
+  color: var(--white-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
 
-  @apply bg-zinc-800;
+  @apply bg-zinc-900;
 }
 
+input[type] {
+  accent-color: var(--red-color);
+}
+
+/* BUTTON CONFIG ============  */
+
 button {
-  @apply bg-red-500 rounded-3xl py-3 px-10 transition-all duration-500;
+  @apply bg-red-500 rounded-3xl py-3 px-10 transition-all duration-500 font-bold;
 }
 
 button:hover {
@@ -30,20 +42,87 @@ button:hover {
   transform: scale(1.1);
 }
 
-input[type] {
-  accent-color: red;
-  height: 20px;
-  size: 20px;
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
 }
 
+button:hover:disabled {
+  transform: scale(1);
+}
+
+/* ANIMATIONS ============  */
+
+@keyframes appear {
+  0% {
+    transform: translateY(150px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: translateX(1);
+  }
+}
+
+/* BALLS ============== */
+
+.ball {
+  @apply bg-red-500 -z-10 absolute -top-16 -left-16 rounded-full;
+  transition: all 0.5s;
+}
+
+.container:hover .ball {
+  animation: scale linear 5s;
+}
+
+.ball:nth-child(1) {
+  @apply opacity-20 w-96 h-96;
+}
+
+.ball:nth-child(2) {
+  @apply opacity-40 w-60 h-60;
+}
+
+/* HEADER ============ */
+
+.divider {
+  @apply bg-slate-50 my-4 w-2/4;
+  height: 0.05rem;
+}
+
+/* MAIN ============ */
+
+main {
+  filter: drop-shadow(0.4rem 0.3rem 0px var(--red-color));
+}
+
+/* ICONS ============ */
+
 .lock {
-  /* fill: red; */
-  transform: rotate(10deg);
-  filter: drop-shadow(0.4rem 0.2rem 0px grey);
+  @apply fill-slate-50;
+  transform: rotate(5deg);
+  filter: drop-shadow(0.4rem 0.2rem 0px #334155);
   transition: all 0.5s;
 }
 
 #generate-button:hover .lock {
   filter: none;
   transform: scale(1.1);
+}
+
+/* PASSWORD_CONTAINER ============ */
+
+#password-container {
+  animation: appear linear 0.2s;
 }

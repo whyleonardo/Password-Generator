@@ -24,12 +24,16 @@ const newPasswordGenerated = () => {
   newPassword.length = slider.value
   newPassword = newPassword.join('')
 
+  buttonGenerate.setAttribute('disabled', 'true')
+
+  // esconder a div do menu enquanto o password não foi gerado ainda
   passwordIsGenerated = true
   if (passwordIsGenerated === true) {
     passwordContainer.classList.remove('hidden')
   }
 
   inputPassword.setAttribute('value', newPassword)
+
   return newPassword
 }
 
@@ -47,13 +51,10 @@ function showPassword() {
 // Resetar o password gerado
 function resetPassword() {
   passwordIsGenerated = false
+  buttonGenerate.removeAttribute('disabled')
   passwordContainer.classList.add('hidden')
   inputPassword.setAttribute('value', '')
   inputPassword.setAttribute('type', 'password')
 
   slider.value = 5
 }
-
-// to do
-
-// esconder a div do menu enquanto o password não foi gerado ainda
